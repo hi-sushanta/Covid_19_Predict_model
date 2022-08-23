@@ -2,6 +2,6 @@
 
 This Note provide how to create covid 19 prediction model and extra thing is also predict Normal and Viral Pneumonia.
 
-Dataset Provid on kaggle :  https://www.kaggle.com/datasets/pranavraikokte/covid19-image-dataset
+Dataset Provide on kaggle :  https://www.kaggle.com/datasets/pranavraikokte/covid19-image-dataset
 
 also use opencv when image file read. bgr type read.
