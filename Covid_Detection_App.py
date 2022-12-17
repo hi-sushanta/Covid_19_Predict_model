@@ -4,18 +4,19 @@ import cv2
 from PIL import Image
 from io import BytesIO
 import base64
-import tensorflow as tf
 from tensorflow.keras.preprocessing.image import load_img
+
+import tensorflow as tf
 
 CLASS_NAMES = ['COVID', 'NORMAL', 'Viral Pneumonia']
 st.title("Covid 19 CT-SCAN Detection")
-image = Image.open(r"covid_image.jpg")
+image = Image.open(r"C:\Users\hiwhy\OneDrive\Documents\Github_project\covid_19_ct_scan_model\covid_image.jpg")
 st.image(image, width=500)
 
 st.header("Upload the CT-SCAN Image")
 ct_image = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
 
-model_path = r"covid_detect"
+model_path = r"C:\Users\hiwhy\OneDrive\Documents\Github_project\covid_19_ct_scan_model\covid_detect"
 model_load = tf.keras.models.load_model(model_path)
 
 def predict_covid(image ,model,img_size=244):
@@ -38,7 +39,8 @@ def predict_covid(image ,model,img_size=244):
 def predict_image(frame, present_condition):
     frame_h = frame.shape[0]
     frame_w = frame.shape[1]
-    frame = cv2.putText(frame,present_condition,(frame_w - 200, frame_h-100),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),3,cv2.LINE_AA)
+    print(frame_w)
+    frame = cv2.putText(frame,present_condition,(int(frame_w/9),int(frame_h/5)),cv2.FONT_HERSHEY_SIMPLEX,1,(0,0,255),2,cv2.LINE_AA)
     return frame
 
 if ct_image is not None:
@@ -53,4 +55,4 @@ if ct_image is not None:
     presen_condition = predict_covid(ct_image,model_load)
 
     pred_image = predict_image(image_bgr,presen_condition)
-    col2.image(pred_image)
+    col2.image(pred_image[:,:,::-1])
