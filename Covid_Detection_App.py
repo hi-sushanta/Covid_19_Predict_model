@@ -36,11 +36,10 @@ def predict_covid(image ,model,img_size=244):
     return pred_class
 
 
-def predict_image(frame, present_condition):
+def predict_image(frame, pesent_condition):
     frame_h = frame.shape[0]
     frame_w = frame.shape[1]
-    print(frame_w)
-    frame = cv2.putText(frame,present_condition,(int(frame_w/9),int(frame_h/5)),cv2.FONT_HERSHEY_SIMPLEX,1,(0,0,255),2,cv2.LINE_AA)
+    frame = cv2.putText(frame,pesent_condition,(int(frame_w/5) , int(frame_h/2)),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),3,cv2.LINE_AA)
     return frame
 
 if ct_image is not None:
@@ -53,6 +52,6 @@ if ct_image is not None:
     col1.image(ct_image)
     col1.text("Original Image")
     presen_condition = predict_covid(ct_image,model_load)
-
+    print(presen_condition)
     pred_image = predict_image(image_bgr,presen_condition)
     col2.image(pred_image[:,:,::-1])
