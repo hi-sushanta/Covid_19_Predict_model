@@ -5,7 +5,7 @@ from PIL import Image
 import tensorflow as tf
 
 CLASS_NAMES = ['COVID', 'NORMAL', 'Viral Pneumonia']
-st.title("Covid 19 CT-SCAN Detection")
+st.title("CHEST CT-SCAN Detection Predict to Covid, Normal, AND Viral Pneumonia")
 image = Image.open(r"covid_image.jpg")
 st.image(image, width=500)
 
