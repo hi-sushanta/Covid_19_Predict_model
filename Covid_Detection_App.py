@@ -6,13 +6,13 @@ import tensorflow as tf
 
 CLASS_NAMES = ['COVID', 'NORMAL', 'Viral Pneumonia']
 st.title("Covid 19 CT-SCAN Detection")
-image = Image.open(r"C:\Users\hiwhy\OneDrive\Documents\Github_project\covid_19_ct_scan_model\covid_image.jpg")
+image = Image.open(r"covid_image.jpg")
 st.image(image, width=500)
 
 st.header("Upload the CT-SCAN Image")
 ct_image = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
 
-model_path = r"C:\Users\hiwhy\OneDrive\Documents\Github_project\covid_19_ct_scan_model\covid_detect"
+model_path = r"covid_detect"
 model_load = tf.keras.models.load_model(model_path)
 
 def predict_covid(img ,model,img_size=244):
