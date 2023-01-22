@@ -11,4 +11,5 @@ also use opencv when image file read. bgr type read.
 1. covid 19 
 2. Normal
 3. Viral Pneumonia
-# one hot time same type of tokenize
+
+Try it now : [**App**](https://covid-19-prediction.streamlit.app/)
