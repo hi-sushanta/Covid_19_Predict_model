@@ -12,7 +12,7 @@ st.image(image, width=500)
 st.header("Upload the CT-SCAN Image")
 ct_image = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
 
-model_path = r"covid_detect"
+model_path = r"Covid_Predict.h5"
 model_load = tf.keras.models.load_model(model_path)
 
 def predict_covid(img ,model,img_size=244):
